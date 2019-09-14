@@ -32,34 +32,41 @@ int main()
     menu = MenuPrincipal();
     
     #pragma region Switch Case 
-    switch (menu)
+    while (menu < 8)
     {
-    case 1:
-        PessoaMaisPesada();
-        break;
-    case 2:
-        PessoaMenosPesada();
-        break;
-    case 3:
-        ConsultaPessoa();
-        break;
-    case 4:
-        InserePessoa();
-        break;
-    case 5:
-        RemovePessoa();
-        break;
-    case 6:
-        ConsultaNumeroDePessoas();
-        break;
-    case 7:
-        VerificaTodosDadosDePessoas();
-        break;
-    case 8:
-        EncerraOsistema();
-        break;
+        switch (menu)
+        {
+        case 1:
+            PessoaMaisPesada();
+            break;
+        case 2:
+            PessoaMenosPesada();
+            break;
+        case 3:
+            ConsultaPessoa();
+            break;
+        case 4:
+            InserePessoa();
+            break;
+        case 5:
+            RemovePessoa();
+            break;
+        case 6:
+            ConsultaNumeroDePessoas();
+            break;
+        case 7:
+            VerificaTodosDadosDePessoas();
+            break;
+        case 8:
+            EncerraOsistema();
+            break;
+        }
+
+        menu = MenuPrincipal();
     }
     #pragma endregion
+    
+    EncerraOsistema();
 }
 
 int MenuPrincipal()
@@ -80,7 +87,7 @@ int MenuPrincipal()
 	scanf("%i", &menu);
     if (menu != 8)
     {
-        while (menu < 1 || menu > 7)
+        while (menu < 1 || menu > 8)
 	    {
             printf("________________________________\n\n");
             printf("   Menu invalido!\n");
@@ -88,10 +95,6 @@ int MenuPrincipal()
             printf("   Digite o menu desejado: ");
             scanf("%i", &menu);
 	    }
-    }
-	else
-    {
-        return menu;
     }
 
     return menu;
@@ -103,7 +106,6 @@ void PessoaMaisPesada()
     printf("________________________________\n\n");
     printf("     Pessoa mais pesada\n\n");
     system("pause");
-    menu = MenuPrincipal();
 }
 
 void PessoaMenosPesada()
@@ -111,7 +113,6 @@ void PessoaMenosPesada()
     printf("________________________________\n\n");
     printf("     Pessoa menos pesada\n\n");
     system("pause");
-    menu = MenuPrincipal();
 }
 
 void ConsultaPessoa()
@@ -119,7 +120,6 @@ void ConsultaPessoa()
     printf("________________________________\n\n");
     printf("     Consultar pessoa\n\n");
     system("pause");
-    menu = MenuPrincipal();
 }
 
 void InserePessoa()
@@ -127,7 +127,6 @@ void InserePessoa()
     printf("________________________________\n\n");
     printf("     Inserir pessoa\n\n");
     system("pause");
-    menu = MenuPrincipal();
 }
 
 void RemovePessoa()
@@ -135,7 +134,6 @@ void RemovePessoa()
     printf("________________________________\n\n");
     printf("     Remover pessoa\n\n");
     system("pause");
-    menu = MenuPrincipal();
 }
 
 void ConsultaNumeroDePessoas()
@@ -143,7 +141,6 @@ void ConsultaNumeroDePessoas()
     printf("________________________________\n\n");
     printf("  Consultar numero de pessoas\n\n");
     system("pause");
-    menu = MenuPrincipal();
 }
 
 void VerificaTodosDadosDePessoas()
@@ -151,7 +148,6 @@ void VerificaTodosDadosDePessoas()
     printf("________________________________\n\n");
     printf("  Verificar todos os registros\n\n");
     system("pause");
-    menu = MenuPrincipal();
 }
 
 void EncerraOsistema()

@@ -3,6 +3,7 @@
 ## O presente repositório faz parte de uma atividade da matéria Estruturas de Dados do curso Análise e Desenvolvimento de Sistemas da Faculdade de Tecnologia de Sorocaba. Escrito em linguagem C, o mesmo possui x fases:
 
 I - Escrever um programa, onde serão definidos os tipos construídos hospede e hotel e declarada a variável a ser utilizada.
+
 II - No programa principal deve ser incluído um menu de opções que distribua para as opçõesselecionáveis.
 O gerenciamento deve apresentar as seguintes operações no menu:
 

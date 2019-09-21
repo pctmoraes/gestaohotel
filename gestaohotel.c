@@ -19,38 +19,39 @@ typedef  Hospede Hotel[10];
 #pragma region Menus Secundários
 void PessoaMaisPesada(Hotel Pessoa, int *fim)
 {
-    printf("________________________________\n\n");
-    printf("     Pessoa mais pesada\n\n");
-    printf("           - - -\n\n");
+    printf("____________________________________________\n\n");
+    printf("              Pessoa mais pesada\n\n");
+    printf("                    - - -\n\n");
     if (*fim == -1)
-        printf("  Nao ha pessoas cadastradas.\n\n  Acesse a opcao 4 para cadastrar.\n\n");
+        printf("\t  Nao ha pessoas cadastradas.\n\n\t Acesse a opcao 4 para cadastrar.\n\n");
     else
     {
-        printf("  Codigo  |  Peso  |  Sexo\n\n");
-        printf("    %d     | %.2f  |    %c\n\n", Pessoa[0].Codigo, Pessoa[0].Peso, Pessoa[0].Sexo);
+        printf("\t   Codigo  |  Peso  |  Sexo\n\n");
+        printf("\t     %d     | %.2f  |    %c\n\n", Pessoa[0].Codigo, Pessoa[0].Peso, Pessoa[0].Sexo);
     }
     system("pause");
 }
 
 void PessoaMenosPesada(Hotel Pessoa, int *fim)
 {
-    printf("________________________________\n\n");
-    printf("     Pessoa menos pesada\n\n");
-    printf("           - - -\n\n");
+    printf("____________________________________________\n\n");
+    printf("              Pessoa menos pesada\n\n");
+    printf("                    - - -\n\n");
     if (*fim == -1)
-        printf("  Nao ha pessoas cadastradas.\n\n  Acesse a opcao 4 para cadastrar.\n\n");
+        printf("\t Nao ha pessoas cadastradas.\n\n\t Acesse a opcao 4 para cadastrar.\n\n");
     else
     {
-        printf("  Codigo  |  Peso  |  Sexo\n\n");
-        printf("    %d     | %.2f  |    %c\n\n", Pessoa[*fim].Codigo, Pessoa[*fim].Peso, Pessoa[*fim].Sexo);
+        printf("\t   Codigo  |  Peso  |  Sexo\n\n");
+        printf("\t     %d     | %.2f  |    %c\n\n", Pessoa[*fim].Codigo, Pessoa[*fim].Peso, Pessoa[*fim].Sexo);
     }
     system("pause");
 }
 
 void ConsultaPessoa()
 {
-    printf("________________________________\n\n");
-    printf("     Consultar pessoa\n\n");
+    printf("____________________________________________\n\n");
+    printf("               Consultar pessoa\n\n");
+    printf("                    - - -\n\n");
     system("pause");
 }
 
@@ -98,72 +99,73 @@ void InserePessoa(Hotel Pessoa, int *fim)
 
 void RemovePessoa()
 {
-    printf("________________________________\n\n");
-    printf("     Remover pessoa\n\n");
+    printf("____________________________________________\n\n");
+    printf("                Remover pessoa\n\n");
+    printf("                    - - -\n\n");
     system("pause");
 }
 
 void ConsultaNumeroDePessoas(int *fim)
 {
-    printf("________________________________\n\n");
-    printf("  Consultar numero de pessoas\n\n");
-    printf("            - - -\n\n");
+    printf("____________________________________________\n\n");
+    printf("\t  Consultar numero de pessoas\n\n");
+    printf("\t\t    - - -\n\n");
     if (*fim == -1)
-        printf("  Pessoas cadastradas = 0\n\n  Acesse a opcao 4 para cadastrar.\n\n");
+        printf("\tPessoas cadastradas = 0\n\n\tAcesse a opcao 4 para cadastrar.\n\n");
     else
-        printf("  Pessoas cadastradas = %d\n\n", (*fim)+1);
+        printf("\t  Pessoas cadastradas = %d\n\n", (*fim)+1);
     system("pause");
 }
 
 void ConsultaTodasAsPessoas(Hotel Pessoa, int *fim)
 {
-    printf("________________________________\n\n");
-    printf("  Consultar todas as Pessoas\n\n");
-    printf("            - - -\n\n");
+    printf("____________________________________________\n\n");
+    printf("\t  Consultar todas as Pessoas\n\n");
+    printf("\t\t     - - -\n\n");
     if (*fim == -1)
-        printf("  Nao ha pessoas cadastradas.\n\n  Acesse a opcao 4 para cadastrar.\n\n");
+        printf("\tNao ha pessoas cadastradas.\n\n\tAcesse a opcao 4 para cadastrar.\n\n");
     else
     {
-        printf("  Codigo  |  Peso  |  Sexo\n\n");
+        printf("\t   Codigo  |  Peso  |  Sexo\n\n");
         for (i = 0; i <= *fim; i++)
-            printf("    %d     | %.2f  |    %c\n\n", Pessoa[i].Codigo, Pessoa[i].Peso, Pessoa[i].Sexo);
+            printf("\t     %d     | %.2f  |    %c\n\n", Pessoa[i].Codigo, Pessoa[i].Peso, Pessoa[i].Sexo);
     }
     system("pause");
 }
 
 void EncerraOsistema()
 {
-    printf("________________________________\n\n");
-    printf("  Encerrando o sistema..\n\n");
-    printf("  Encerrando o sistema...\n\n");
-    printf("  Sistema encerrado.\n\n");
+    printf("____________________________________________\n\n");
+    printf("           Encerrando o sistema..\n\n");
+    printf("           Encerrando o sistema...\n\n");
+    printf("           Sistema encerrado.\n\n");
 }
 #pragma endregion
 
 int MenuPrincipal()
 {
-    printf("________________________________\n\n");
-    printf("        Menu  Principal\n\n");
-    printf(" 1 - Mais Pesado\n");
-    printf(" 2 - Menos Pesado\n");
-    printf(" 3 - Consultar Pessoa\n");
-    printf(" 4 - Inserir Pessoa\n");
-    printf(" 5 - Remover Pessoa\n");
-    printf(" 6 - Consultar numero de Pessoas\n");
-    printf(" 7 - Consultar todas as Pessoas\n");
-    printf(" 8 - Encerrar\n");
-    printf("________________________________\n\n");
-    printf("   Digite o menu desejado: ");
+    printf("____________________________________________\n\n");
+    printf("               Menu  Principal\n\n");
+    printf("      1 - Mais Pesado\n");
+    printf("      2 - Menos Pesado\n");
+    printf("      3 - Consultar Pessoa\n");
+    printf("      4 - Inserir Pessoa\n");
+    printf("      5 - Remover Pessoa\n");
+    printf("      6 - Consultar numero de Pessoas\n");
+    printf("      7 - Consultar todas as Pessoas\n");
+    printf("      8 - Encerrar\n");
+    printf("____________________________________________\n\n");
+    printf("          Digite o menu desejado: ");
 
 	scanf("%i", &menu);
     if (menu != 8)
     {
         while (menu < 1 || menu > 8)
 	    {
-            printf("________________________________\n\n");
-            printf("   Menu invalido!\n");
-            printf("________________________________\n\n");
-            printf("   Digite o menu desejado: ");
+            printf("____________________________________________\n\n");
+            printf("          Menu invalido!\n");
+            printf("____________________________________________\n\n");
+            printf("          Digite o menu desejado: ");
             scanf("%i", &menu);
 	    }
     }

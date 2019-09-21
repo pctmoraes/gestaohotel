@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #pragma region Estrutura de Dados
 static int menu;
@@ -104,6 +105,7 @@ void InserePessoa(Hotel Pessoa, int *fim)
         printf("       Sexo: ");
         fflush(stdin);
         Pessoa[*fim+1].Sexo = getchar();
+        Pessoa[*fim+1].Sexo = toupper(Pessoa[*fim+1].Sexo);
         
         (*fim)++;
 
@@ -241,18 +243,6 @@ int main()
     #pragma region Variáveis auxiliares
     Hotel Pessoa;
     int fim = -1;
-    #pragma endregion
-
-    #pragma region Métodos
-    /*int MenuPrincipal();
-    void PessoaMaisPesada(Hotel Pessoa, int *fim);
-    void PessoaMenosPesada(Hotel Pessoa, int *fim);
-    void ConsultaPessoa(Hotel Pessoa, int *fim);
-    void InserePessoa(Hotel Pessoa, int *fim);
-    void RemovePessoa(Hotel Pessoa, int *fim);
-    void ConsultaNumeroDePessoas(int *fim);
-    void ConsultaTodasAsPessoas(Hotel Pessoa, int *fim);
-    void EncerraOsistema();*/
     #pragma endregion
     
     menu = MenuPrincipal();

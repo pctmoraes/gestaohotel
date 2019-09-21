@@ -16,10 +16,18 @@ typedef  Hospede Hotel[10];
 #pragma endregion
 
 #pragma region Menus Secundários
-void PessoaMaisPesada()
+void PessoaMaisPesada(Hotel Pessoa, int *fim)
 {
     printf("________________________________\n\n");
     printf("     Pessoa mais pesada\n\n");
+    printf("           - - -\n\n");
+    if (*fim == -1)
+        printf("  Nao ha pessoas cadastradas.\n\n  Acesse a opcao 4 para cadastrar.\n\n");
+    else
+    {
+        printf("  Codigo  |  Peso  |  Sexo\n\n");
+        printf("    %d     | %.2f  |    %c\n\n", Pessoa[0].Codigo, Pessoa[0].Peso, Pessoa[0].Sexo);
+    }
     system("pause");
 }
 
@@ -128,7 +136,7 @@ int main()
 
     #pragma region Métodos
     int MenuPrincipal();
-    void PessoaMaisPesada();
+    void PessoaMaisPesada(Hotel Pessoa, int *fim);
     void PessoaMenosPesada();
     void ConsultaPessoa();
     void InserePessoa();
@@ -146,7 +154,7 @@ int main()
         switch (menu)
         {
         case 1:
-            PessoaMaisPesada();
+            PessoaMaisPesada(Pessoa, &fim);
             break;
         case 2:
             PessoaMenosPesada();

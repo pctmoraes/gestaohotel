@@ -3,6 +3,7 @@
 
 #pragma region Estrutura de Dados
 static int menu;
+static int i;
 
 typedef struct 
 {
@@ -62,10 +63,19 @@ void ConsultaNumeroDePessoas(int *fim)
     system("pause");
 }
 
-void VerificaTodosDadosDePessoas()
+void ConsultaTodasAsPessoas(Hotel Pessoa, int *fim)
 {
     printf("________________________________\n\n");
-    printf("  Verificar todos os registros\n\n");
+    printf("  Consultar todas as Pessoas\n\n");
+    printf("            - - -\n\n");
+    if (*fim == -1)
+        printf("  Nao ha pessoas cadastradas.\n\n  Acesse a opcao 4 para cadastrar.\n\n");
+    else
+    {
+        printf("  Codigo  |  Peso  |  Sexo\n\n");
+        for (i = 0; i <= *fim; i++)
+            printf("    %d     | %.2f  |    %c\n\n", Pessoa[i].Codigo, Pessoa[i].Peso, Pessoa[i].Sexo);
+    }
     system("pause");
 }
 
@@ -88,7 +98,7 @@ int MenuPrincipal()
     printf(" 4 - Inserir Pessoa\n");
     printf(" 5 - Remover Pessoa\n");
     printf(" 6 - Consultar numero de Pessoas\n");
-    printf(" 7 - Verificar todos os dados\n");
+    printf(" 7 - Consultar todas as Pessoas\n");
     printf(" 8 - Encerrar\n");
     printf("________________________________\n\n");
     printf("   Digite o menu desejado: ");
@@ -124,7 +134,7 @@ int main()
     void InserePessoa();
     void RemovePessoa();
     void ConsultaNumeroDePessoas(int *fim);
-    void VerificaTodosDadosDePessoas();
+    void ConsultaTodasAsPessoas(Hotel Pessoa, int *fim);
     void EncerraOsistema();
     #pragma endregion
     
@@ -154,7 +164,7 @@ int main()
             ConsultaNumeroDePessoas(&fim);
             break;
         case 7:
-            VerificaTodosDadosDePessoas();
+            ConsultaTodasAsPessoas(Pessoa, &fim);
             break;
         case 8:
             EncerraOsistema();

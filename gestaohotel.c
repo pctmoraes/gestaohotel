@@ -12,7 +12,7 @@ int main()
     void ConsultaPessoa();
     void InserePessoa();
     void RemovePessoa();
-    void ConsultaNumeroDePessoas();
+    void ConsultaNumeroDePessoas(int *fim);
     void VerificaTodosDadosDePessoas();
     void EncerraOsistema();
     #pragma endregion
@@ -27,6 +27,8 @@ int main()
 
     typedef  Hospede Hotel[10];
     Hotel Pessoa;
+
+    int fim = -1;
     #pragma endregion
     
     menu = MenuPrincipal();
@@ -52,7 +54,7 @@ int main()
             RemovePessoa();
             break;
         case 6:
-            ConsultaNumeroDePessoas();
+            ConsultaNumeroDePessoas(&fim);
             break;
         case 7:
             VerificaTodosDadosDePessoas();
@@ -136,10 +138,15 @@ void RemovePessoa()
     system("pause");
 }
 
-void ConsultaNumeroDePessoas()
+void ConsultaNumeroDePessoas(int *fim)
 {
     printf("________________________________\n\n");
     printf("  Consultar numero de pessoas\n\n");
+    printf("            - - -\n\n");
+    if (*fim == -1)
+        printf("  Pessoas cadastradas = 0\n\n  Acesse a opcao 4 para cadastrar.\n\n");
+    else
+        printf("  Pessoas cadastradas = %d\n\n", (*fim)+1);
     system("pause");
 }
 

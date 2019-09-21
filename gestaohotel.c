@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #pragma region Estrutura de Dados
 static int menu;
@@ -53,10 +54,45 @@ void ConsultaPessoa()
     system("pause");
 }
 
-void InserePessoa()
+void InserePessoa(Hotel Pessoa, int *fim)
 {
-    printf("________________________________\n\n");
-    printf("     Inserir pessoa\n\n");
+    Hospede PessoaTemporaria;
+
+    printf("____________________________________________\n\n");
+    printf("                Inserir pessoa\n\n");
+    printf("                    - - -\n\n");
+    if (*fim == 9)
+    {
+        printf("\tDesculpe,\n\tnao ha vagas disponiveis\n\tpara um novo cadastro.\n\n");
+        system("pause");
+        return;
+    }
+    else
+    {
+        printf("       Codigo: ");
+        scanf("%i", &Pessoa[*fim+1].Codigo);
+        printf("       Peso: ");
+        scanf("%f", &Pessoa[*fim+1].Peso);
+        printf("       Sexo: ");
+        fflush(stdin);
+        Pessoa[*fim+1].Sexo = getchar();
+        
+        (*fim)++;
+
+        for (i = 0; i <= *fim; i++)
+        {
+            if (Pessoa[i].Peso < Pessoa[*fim].Peso)
+            {
+                PessoaTemporaria = Pessoa[*fim];
+                Pessoa[*fim] = Pessoa[i];
+                Pessoa[i] = PessoaTemporaria;
+            }
+            
+        }
+
+        printf("\n\n       Pessoa cadastrada com sucesso!\n\n");
+    }
+    
     system("pause");
 }
 
@@ -147,7 +183,7 @@ int main()
     void PessoaMaisPesada(Hotel Pessoa, int *fim);
     void PessoaMenosPesada(Hotel Pessoa, int *fim);
     void ConsultaPessoa();
-    void InserePessoa();
+    void InserePessoa(Hotel Pessoa, int *fim);
     void RemovePessoa();
     void ConsultaNumeroDePessoas(int *fim);
     void ConsultaTodasAsPessoas(Hotel Pessoa, int *fim);
@@ -171,7 +207,7 @@ int main()
             ConsultaPessoa();
             break;
         case 4:
-            InserePessoa();
+            InserePessoa(Pessoa, &fim);
             break;
         case 5:
             RemovePessoa();

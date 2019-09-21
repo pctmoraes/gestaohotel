@@ -47,11 +47,38 @@ void PessoaMenosPesada(Hotel Pessoa, int *fim)
     system("pause");
 }
 
-void ConsultaPessoa()
+void ConsultaPessoa(Hotel Pessoa, int *fim)
 {
+    int codigo;
+    int index = -1;
+
     printf("____________________________________________\n\n");
     printf("               Consultar pessoa\n\n");
     printf("                    - - -\n\n");
+    if (*fim == -1)
+        printf("\t  Nao ha pessoas para consultar.\n\n\t Acesse a opcao 4 para cadastrar.\n\n");
+    else
+    {
+        printf("\n\n\t       Digite o codigo: ");
+        scanf("%i", &codigo);
+
+        for (i = 0; i <= *fim; i++)
+        {
+            if (Pessoa[i].Codigo == codigo)
+            {
+                index = i;
+                i = *fim;
+            }
+        }
+
+        if (index != -1)
+        {
+            printf("\n\n\t    Codigo  |  Peso  |  Sexo\n\n");
+            printf("\t      %d     | %.2f  |    %c\n\n", Pessoa[index].Codigo, Pessoa[index].Peso, Pessoa[index].Sexo);
+        }
+        else
+            printf("\n\n\t         Codigo invalido!\n\n");
+    }
     system("pause");
 }
 
@@ -184,7 +211,7 @@ int main()
     int MenuPrincipal();
     void PessoaMaisPesada(Hotel Pessoa, int *fim);
     void PessoaMenosPesada(Hotel Pessoa, int *fim);
-    void ConsultaPessoa();
+    void ConsultaPessoa(Hotel Pessoa, int *fim);
     void InserePessoa(Hotel Pessoa, int *fim);
     void RemovePessoa();
     void ConsultaNumeroDePessoas(int *fim);
@@ -206,7 +233,7 @@ int main()
             PessoaMenosPesada(Pessoa, &fim);
             break;
         case 3:
-            ConsultaPessoa();
+            ConsultaPessoa(Pessoa, &fim);
             break;
         case 4:
             InserePessoa(Pessoa, &fim);

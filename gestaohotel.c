@@ -124,11 +124,47 @@ void InserePessoa(Hotel Pessoa, int *fim)
     system("pause");
 }
 
-void RemovePessoa()
+void RemovePessoa(Hotel Pessoa, int *fim)
 {
+    int codigo;
+    int index = -1;
+
     printf("____________________________________________\n\n");
     printf("                Remover pessoa\n\n");
     printf("                    - - -\n\n");
+    if (*fim == -1)
+        printf("\t  Nao ha pessoas para remover.\n\n\t Acesse a opcao 4 para cadastrar.\n\n");
+    else
+    {
+        printf("\n\n\t       Digite o codigo: ");
+        scanf("%i", &codigo);
+
+        for (i = 0; i <= *fim; i++)
+        {
+            if (Pessoa[i].Codigo == codigo)
+            {
+                index = i;
+                i = *fim;
+            }
+        }
+
+        if (index != -1)
+        {
+            for (i = index + 1; i <= *fim; i++)
+            {
+                Pessoa[index].Codigo = Pessoa[index+1].Codigo;
+                Pessoa[index].Peso = Pessoa[index+1].Peso;
+                Pessoa[index].Sexo = Pessoa[index+1].Sexo;
+            }
+
+            (*fim)--;
+
+            printf("\n\n\t   Pessoa removida com sucesso.\n\n");
+        }
+        else
+            printf("\n\n\t         Codigo invalido!\n\n");
+    }
+    
     system("pause");
 }
 
@@ -208,15 +244,15 @@ int main()
     #pragma endregion
 
     #pragma region Métodos
-    int MenuPrincipal();
+    /*int MenuPrincipal();
     void PessoaMaisPesada(Hotel Pessoa, int *fim);
     void PessoaMenosPesada(Hotel Pessoa, int *fim);
     void ConsultaPessoa(Hotel Pessoa, int *fim);
     void InserePessoa(Hotel Pessoa, int *fim);
-    void RemovePessoa();
+    void RemovePessoa(Hotel Pessoa, int *fim);
     void ConsultaNumeroDePessoas(int *fim);
     void ConsultaTodasAsPessoas(Hotel Pessoa, int *fim);
-    void EncerraOsistema();
+    void EncerraOsistema();*/
     #pragma endregion
     
     menu = MenuPrincipal();
@@ -239,7 +275,7 @@ int main()
             InserePessoa(Pessoa, &fim);
             break;
         case 5:
-            RemovePessoa();
+            RemovePessoa(Pessoa, &fim);
             break;
         case 6:
             ConsultaNumeroDePessoas(&fim);

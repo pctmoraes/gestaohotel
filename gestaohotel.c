@@ -1,106 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#pragma region Estrutura de Dados
 static int menu;
 
-int main()
+typedef struct 
 {
-    #pragma region Métodos
-    int MenuPrincipal();
-    void PessoaMaisPesada();
-    void PessoaMenosPesada();
-    void ConsultaPessoa();
-    void InserePessoa();
-    void RemovePessoa();
-    void ConsultaNumeroDePessoas(int *fim);
-    void VerificaTodosDadosDePessoas();
-    void EncerraOsistema();
-    #pragma endregion
+    int Codigo;
+    float Peso;
+    char Sexo;
+} Hospede;
 
-    #pragma region Estruturas de Dados
-    typedef struct
-    {
-        int codigo;
-        float peso;
-        char sexo;
-    } Hospede;
-
-    typedef  Hospede Hotel[10];
-    Hotel Pessoa;
-
-    int fim = -1;
-    #pragma endregion
-    
-    menu = MenuPrincipal();
-    
-    #pragma region Switch Case 
-    while (menu < 8)
-    {
-        switch (menu)
-        {
-        case 1:
-            PessoaMaisPesada();
-            break;
-        case 2:
-            PessoaMenosPesada();
-            break;
-        case 3:
-            ConsultaPessoa();
-            break;
-        case 4:
-            InserePessoa();
-            break;
-        case 5:
-            RemovePessoa();
-            break;
-        case 6:
-            ConsultaNumeroDePessoas(&fim);
-            break;
-        case 7:
-            VerificaTodosDadosDePessoas();
-            break;
-        case 8:
-            EncerraOsistema();
-            break;
-        }
-
-        menu = MenuPrincipal();
-    }
-    #pragma endregion
-    
-    EncerraOsistema();
-}
-
-int MenuPrincipal()
-{
-    printf("________________________________\n\n");
-    printf("        Menu  Principal\n\n");
-    printf(" 1 - Mais Pesado\n");
-    printf(" 2 - Menos Pesado\n");
-    printf(" 3 - Consultar Pessoa\n");
-    printf(" 4 - Inserir Pessoa\n");
-    printf(" 5 - Remover Pessoa\n");
-    printf(" 6 - Consultar numero de Pessoas\n");
-    printf(" 7 - Verificar todos os dados\n");
-    printf(" 8 - Encerrar\n");
-    printf("________________________________\n\n");
-    printf("   Digite o menu desejado: ");
-
-	scanf("%i", &menu);
-    if (menu != 8)
-    {
-        while (menu < 1 || menu > 8)
-	    {
-            printf("________________________________\n\n");
-            printf("   Menu invalido!\n");
-            printf("________________________________\n\n");
-            printf("   Digite o menu desejado: ");
-            scanf("%i", &menu);
-	    }
-    }
-
-    return menu;
-}
+typedef  Hospede Hotel[10];
+#pragma endregion
 
 #pragma region Menus Secundários
 void PessoaMaisPesada()
@@ -165,3 +77,94 @@ void EncerraOsistema()
     printf("  Sistema encerrado.\n\n");
 }
 #pragma endregion
+
+int MenuPrincipal()
+{
+    printf("________________________________\n\n");
+    printf("        Menu  Principal\n\n");
+    printf(" 1 - Mais Pesado\n");
+    printf(" 2 - Menos Pesado\n");
+    printf(" 3 - Consultar Pessoa\n");
+    printf(" 4 - Inserir Pessoa\n");
+    printf(" 5 - Remover Pessoa\n");
+    printf(" 6 - Consultar numero de Pessoas\n");
+    printf(" 7 - Verificar todos os dados\n");
+    printf(" 8 - Encerrar\n");
+    printf("________________________________\n\n");
+    printf("   Digite o menu desejado: ");
+
+	scanf("%i", &menu);
+    if (menu != 8)
+    {
+        while (menu < 1 || menu > 8)
+	    {
+            printf("________________________________\n\n");
+            printf("   Menu invalido!\n");
+            printf("________________________________\n\n");
+            printf("   Digite o menu desejado: ");
+            scanf("%i", &menu);
+	    }
+    }
+
+    return menu;
+}
+
+int main()
+{
+    #pragma region Variáveis auxiliares
+    Hotel Pessoa;
+    int fim = -1;
+    #pragma endregion
+
+    #pragma region Métodos
+    int MenuPrincipal();
+    void PessoaMaisPesada();
+    void PessoaMenosPesada();
+    void ConsultaPessoa();
+    void InserePessoa();
+    void RemovePessoa();
+    void ConsultaNumeroDePessoas(int *fim);
+    void VerificaTodosDadosDePessoas();
+    void EncerraOsistema();
+    #pragma endregion
+    
+    menu = MenuPrincipal();
+    
+    #pragma region Switch Case 
+    while (menu < 8)
+    {
+        switch (menu)
+        {
+        case 1:
+            PessoaMaisPesada();
+            break;
+        case 2:
+            PessoaMenosPesada();
+            break;
+        case 3:
+            ConsultaPessoa();
+            break;
+        case 4:
+            InserePessoa();
+            break;
+        case 5:
+            RemovePessoa();
+            break;
+        case 6:
+            ConsultaNumeroDePessoas(&fim);
+            break;
+        case 7:
+            VerificaTodosDadosDePessoas();
+            break;
+        case 8:
+            EncerraOsistema();
+            break;
+        }
+
+        menu = MenuPrincipal();
+    }
+    #pragma endregion
+    
+    EncerraOsistema();
+}
+

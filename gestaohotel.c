@@ -31,10 +31,18 @@ void PessoaMaisPesada(Hotel Pessoa, int *fim)
     system("pause");
 }
 
-void PessoaMenosPesada()
+void PessoaMenosPesada(Hotel Pessoa, int *fim)
 {
     printf("________________________________\n\n");
     printf("     Pessoa menos pesada\n\n");
+    printf("           - - -\n\n");
+    if (*fim == -1)
+        printf("  Nao ha pessoas cadastradas.\n\n  Acesse a opcao 4 para cadastrar.\n\n");
+    else
+    {
+        printf("  Codigo  |  Peso  |  Sexo\n\n");
+        printf("    %d     | %.2f  |    %c\n\n", Pessoa[*fim].Codigo, Pessoa[*fim].Peso, Pessoa[*fim].Sexo);
+    }
     system("pause");
 }
 
@@ -137,7 +145,7 @@ int main()
     #pragma region Métodos
     int MenuPrincipal();
     void PessoaMaisPesada(Hotel Pessoa, int *fim);
-    void PessoaMenosPesada();
+    void PessoaMenosPesada(Hotel Pessoa, int *fim);
     void ConsultaPessoa();
     void InserePessoa();
     void RemovePessoa();
@@ -157,7 +165,7 @@ int main()
             PessoaMaisPesada(Pessoa, &fim);
             break;
         case 2:
-            PessoaMenosPesada();
+            PessoaMenosPesada(Pessoa, &fim);
             break;
         case 3:
             ConsultaPessoa();

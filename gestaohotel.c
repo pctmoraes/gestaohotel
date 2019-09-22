@@ -23,6 +23,7 @@ void PessoaMaisPesada(Hotel Pessoa, int *fim)
     printf("____________________________________________\n\n");
     printf("              Pessoa mais pesada\n\n");
     printf("                    - - -\n\n");
+    
     if (*fim == -1)
         printf("\t  Nao ha pessoas cadastradas.\n\n\t Acesse a opcao 4 para cadastrar.\n\n");
     else
@@ -30,6 +31,7 @@ void PessoaMaisPesada(Hotel Pessoa, int *fim)
         printf("\t   Codigo  |  Peso  |  Sexo\n\n");
         printf("\t     %d     | %.2f  |    %c\n\n", Pessoa[0].Codigo, Pessoa[0].Peso, Pessoa[0].Sexo);
     }
+
     system("pause");
 }
 
@@ -38,6 +40,7 @@ void PessoaMenosPesada(Hotel Pessoa, int *fim)
     printf("____________________________________________\n\n");
     printf("              Pessoa menos pesada\n\n");
     printf("                    - - -\n\n");
+
     if (*fim == -1)
         printf("\t Nao ha pessoas cadastradas.\n\n\t Acesse a opcao 4 para cadastrar.\n\n");
     else
@@ -45,6 +48,7 @@ void PessoaMenosPesada(Hotel Pessoa, int *fim)
         printf("\t   Codigo  |  Peso  |  Sexo\n\n");
         printf("\t     %d     | %.2f  |    %c\n\n", Pessoa[*fim].Codigo, Pessoa[*fim].Peso, Pessoa[*fim].Sexo);
     }
+
     system("pause");
 }
 
@@ -56,6 +60,7 @@ void ConsultaPessoa(Hotel Pessoa, int *fim)
     printf("____________________________________________\n\n");
     printf("               Consultar pessoa\n\n");
     printf("                    - - -\n\n");
+
     if (*fim == -1)
         printf("\t  Nao ha pessoas para consultar.\n\n\t Acesse a opcao 4 para cadastrar.\n\n");
     else
@@ -80,6 +85,7 @@ void ConsultaPessoa(Hotel Pessoa, int *fim)
         else
             printf("\n\n\t         Codigo invalido!\n\n");
     }
+
     system("pause");
 }
 
@@ -90,6 +96,7 @@ void InserePessoa(Hotel Pessoa, int *fim)
     printf("____________________________________________\n\n");
     printf("                Inserir pessoa\n\n");
     printf("                    - - -\n\n");
+
     if (*fim == 9)
     {
         printf("\tDesculpe,\n\tnao ha vagas disponiveis\n\tpara um novo cadastro.\n\n");
@@ -117,7 +124,6 @@ void InserePessoa(Hotel Pessoa, int *fim)
                 Pessoa[*fim] = Pessoa[i];
                 Pessoa[i] = PessoaTemporaria;
             }
-            
         }
 
         printf("\n\n       Pessoa cadastrada com sucesso!\n\n");
@@ -134,8 +140,10 @@ void RemovePessoa(Hotel Pessoa, int *fim)
     printf("____________________________________________\n\n");
     printf("                Remover pessoa\n\n");
     printf("                    - - -\n\n");
+
     if (*fim == -1)
         printf("\t  Nao ha pessoas para remover.\n\n\t Acesse a opcao 4 para cadastrar.\n\n");
+
     else
     {
         printf("\n\n\t       Digite o codigo: ");
@@ -175,10 +183,12 @@ void ConsultaNumeroDePessoas(int *fim)
     printf("____________________________________________\n\n");
     printf("\t  Consultar numero de pessoas\n\n");
     printf("\t\t    - - -\n\n");
+
     if (*fim == -1)
         printf("\tPessoas cadastradas = 0\n\n\tAcesse a opcao 4 para cadastrar.\n\n");
     else
         printf("\t  Pessoas cadastradas = %d\n\n", (*fim)+1);
+
     system("pause");
 }
 
@@ -187,6 +197,7 @@ void ConsultaTodasAsPessoas(Hotel Pessoa, int *fim)
     printf("____________________________________________\n\n");
     printf("\t  Consultar todas as Pessoas\n\n");
     printf("\t\t     - - -\n\n");
+
     if (*fim == -1)
         printf("\tNao ha pessoas cadastradas.\n\n\tAcesse a opcao 4 para cadastrar.\n\n");
     else
@@ -195,6 +206,7 @@ void ConsultaTodasAsPessoas(Hotel Pessoa, int *fim)
         for (i = 0; i <= *fim; i++)
             printf("\t     %d     | %.2f  |    %c\n\n", Pessoa[i].Codigo, Pessoa[i].Peso, Pessoa[i].Sexo);
     }
+
     system("pause");
 }
 
@@ -223,6 +235,7 @@ int MenuPrincipal()
     printf("          Digite o menu desejado: ");
 
 	scanf("%i", &menu);
+
     if (menu != 8)
     {
         while (menu < 1 || menu > 8)
